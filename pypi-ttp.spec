@@ -4,7 +4,7 @@
 #
 Name     : pypi-ttp
 Version  : 0.9.2
-Release  : 14
+Release  : 15
 URL      : https://files.pythonhosted.org/packages/8f/46/0dfc8e2e5a656ab99ecb36d04213fa12627911b131a2af5bf555d52a4b1a/ttp-0.9.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/8f/46/0dfc8e2e5a656ab99ecb36d04213fa12627911b131a2af5bf555d52a4b1a/ttp-0.9.2.tar.gz
 Summary  : Template Text Parser
