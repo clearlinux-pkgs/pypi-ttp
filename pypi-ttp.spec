@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-ttp
-Version  : 0.9.3
-Release  : 16
-URL      : https://files.pythonhosted.org/packages/42/68/7980c8d148488acf3a547c8e83ade3601215b568f220788d4d7d393f4cea/ttp-0.9.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/42/68/7980c8d148488acf3a547c8e83ade3601215b568f220788d4d7d393f4cea/ttp-0.9.3.tar.gz
+Version  : 0.9.4
+Release  : 17
+URL      : https://files.pythonhosted.org/packages/62/16/2e1aeb095e090969751546d5eb45deb307e6c24cd4cd9710e10d006988ce/ttp-0.9.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/62/16/2e1aeb095e090969751546d5eb45deb307e6c24cd4cd9710e10d006988ce/ttp-0.9.4.tar.gz
 Summary  : Template Text Parser
 Group    : Development/Tools
 License  : MIT
@@ -63,10 +63,10 @@ python3 components for the pypi-ttp package.
 
 
 %prep
-%setup -q -n ttp-0.9.3
-cd %{_builddir}/ttp-0.9.3
+%setup -q -n ttp-0.9.4
+cd %{_builddir}/ttp-0.9.4
 pushd ..
-cp -a ttp-0.9.3 buildavx2
+cp -a ttp-0.9.4 buildavx2
 popd
 
 %build
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681749450
+export SOURCE_DATE_EPOCH=1682273517
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
