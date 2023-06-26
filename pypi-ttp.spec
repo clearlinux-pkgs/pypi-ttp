@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-ttp
-Version  : 0.9.4
-Release  : 17
-URL      : https://files.pythonhosted.org/packages/62/16/2e1aeb095e090969751546d5eb45deb307e6c24cd4cd9710e10d006988ce/ttp-0.9.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/62/16/2e1aeb095e090969751546d5eb45deb307e6c24cd4cd9710e10d006988ce/ttp-0.9.4.tar.gz
+Version  : 0.9.5
+Release  : 18
+URL      : https://files.pythonhosted.org/packages/6e/4f/b95e48d3b653e1b1494a3a5b15614db5a340826282c5389e38cb2248da39/ttp-0.9.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/6e/4f/b95e48d3b653e1b1494a3a5b15614db5a340826282c5389e38cb2248da39/ttp-0.9.5.tar.gz
 Summary  : Template Text Parser
 Group    : Development/Tools
 License  : MIT
@@ -16,7 +16,7 @@ Requires: pypi-ttp-license = %{version}-%{release}
 Requires: pypi-ttp-python = %{version}-%{release}
 Requires: pypi-ttp-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(poetry)
+BuildRequires : pypi(poetry_core)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -63,10 +63,10 @@ python3 components for the pypi-ttp package.
 
 
 %prep
-%setup -q -n ttp-0.9.4
-cd %{_builddir}/ttp-0.9.4
+%setup -q -n ttp-0.9.5
+cd %{_builddir}/ttp-0.9.5
 pushd ..
-cp -a ttp-0.9.4 buildavx2
+cp -a ttp-0.9.5 buildavx2
 popd
 
 %build
@@ -74,15 +74,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682273517
+export SOURCE_DATE_EPOCH=1687797926
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
